@@ -6,9 +6,11 @@ It's simple: Your idea (content image) + Van Gogh's style (style image) = Your p
 The result? Your artistic vision expressed through Van Gogh's eyes.
 
 **INTRODUCTION**
-**Introduction :**
+
 Image style transfer is a computer vision technique that involves applying the artistic style of one image (the style image) to another image (the content image) while preserving the structure of the content image. 
+
 This technique is based on deep learning and leverages convolutional neural networks (CNNs), particularly pre-trained models like VGG-19. 
+
 The VGG (Visual Geometry Group) model is a deep CNN that has been widely used in image processing tasks. In this project, VGG-19 is utilized for feature extraction and style-content separation, enabling the transfer of artistic styles while maintaining key content structures.
 
 _Techniques Used_
@@ -30,6 +32,7 @@ The deeper layers of VGG-19 encode the content features of the input image.
 The middle and shallow layers encode style patterns like textures, colors, and brush strokes.
 
 2.3 Libraries
+
 2.3.1 ImageNet
 ImageNet is a large-scale image dataset used for training deep learning models.
 VGG-19 is pre-trained on ImageNet, meaning it has learned robust feature representations from millions of images.
@@ -41,8 +44,9 @@ It helps in analyzing the transformation progress and adjusting hyperparameters 
 Seaborn is used for enhanced visualizations, such as plotting loss curves to monitor content and style loss across iterations.
 It aids in understanding the convergence of the style transfer process.
 
-3. _Working Mechanism of Style Transfer_
+3.Working Mechanism of Style Transfer
 3.1 Steps in Style Transfer Algorithm
+
 ->Load the Pre-Trained VGG-19 Model
 ->Use VGG-19 without fully connected layers.
 ->Extract feature maps from multiple layers.
@@ -75,21 +79,29 @@ Traditional VGG-19-based NST requires iterative optimization to transform an ima
 Generative Adversarial Networks (GANs) consist of two competing networks:
 Generator (G): 
 The generator creates stylized images by transforming input images based on the chosen artistic style.
+
 **In simple, Consider you uploaded a image in some photoshop app.After a while it gives us a collection of images in which it changed the facial features,structure,texture of your image.
 This is what generator actually does.**
+
 There're three components in generator:
 Encoder:
 Extracts image features through convolutional layers, reducing resolution and increasing feature depth.
+
 Transformer: 
 Applies residual blocks to modify features while maintaining key patterns.
+
 Decoder: 
 Reconstructs the stylized image by up sampling features using transpose convolutional layers.
+
+
 Discriminator (D): 
 Distinguishes between real artwork and generated images.
 (or)
 The discriminator ensures that the generated images resemble the desired artistic style while retaining the input  image content.
+
 **In simplee, Consider the photoshop case: It generates the bunch of images which resembles our input image. Now, its our turn to choose which image is most resmbled with what we actually desired of.
 This is what Discriminator actually does, it considers both the content and style image with generated stylized image.**
+
 During training:
 ✔ G learns to generate images that mimic the desired style.
 ✔ D improves by identifying real artwork vs. generated images.
@@ -97,10 +109,12 @@ During training:
 This adversarial process results in more realistic and high-quality style transfer images.
 
 _Hardware Requirements_:
+
 GPU-enabled System for Deep Learning
 Minimum 16GB RAM and 1TB Storage
 NVIDIA RTX Series for High Performance
 _Software Requirements_:
+
 Streamlit
 TensorFlow for Deep Learning
 Libraries: NumPy, Matplotlib, Seaborn
